@@ -3,11 +3,11 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 const apiPort = 3000
-
+const CreateMongoServer = require("./db/index");
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
-
+CreateMongoServer();
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
